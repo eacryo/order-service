@@ -1,5 +1,6 @@
 package com.eacryo.orderservice.service.impl;
 
+import com.eacryo.orderservice.constant.ReduceTypeConstant;
 import com.eacryo.orderservice.factory.ReduceRepositoryStrategyProxy;
 import com.eacryo.orderservice.service.ReduceRepositoryService;
 import org.springframework.beans.factory.InitializingBean;
@@ -15,6 +16,6 @@ public class MqReduceRepositoryService implements ReduceRepositoryService, Initi
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        ReduceRepositoryStrategyProxy.registry("mq", this);
+        ReduceRepositoryStrategyProxy.registry(ReduceTypeConstant.REDUCE_TYPE_MQ, this);
     }
 }

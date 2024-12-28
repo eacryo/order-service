@@ -18,13 +18,13 @@ public class ReduceRepositoryStrategyProxy {
         factory.put(key, impl);
     }
 
-    public void doReduce(int number,String key){
+    public void doReduce(String key,int number){
         ReduceRepositoryService impl = factory.get(key);
         if(impl != null){
             impl.reduce(number);
         }
         else {
-            System.out.println("No such ReduceRepositoryService");
+            throw new RuntimeException("No such ReduceRepositoryService");
         }
     }
 

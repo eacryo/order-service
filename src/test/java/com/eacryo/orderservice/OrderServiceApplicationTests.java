@@ -1,6 +1,7 @@
 package com.eacryo.orderservice;
 
 import com.eacryo.orderservice.client.RepositoryClient;
+import com.eacryo.orderservice.constant.ReduceTypeConstant;
 import com.eacryo.orderservice.factory.ReduceRepositoryStrategyProxy;
 import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
@@ -25,8 +26,14 @@ class OrderServiceApplicationTests {
     }
 
     @Test
+    public void testReduceWithAmount(){
+        int amount = 10;
+        System.out.println(repositoryClient.reduceWithAmount(amount));
+    }
+
+    @Test
     public void ReduceRepositoryStrategyProxyTest(){
-        reduceRepositoryStrategyProxy.doReduce(2,"mq");
+        reduceRepositoryStrategyProxy.doReduce(ReduceTypeConstant.REDUCE_TYPE_FEIGN,200);
     }
 
 }
